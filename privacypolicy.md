@@ -40,7 +40,7 @@ We take reasonable measures to protect the information collected through the Gam
 
 ## Children's Privacy
 
-The Game is not intended for use by individuals under the age of 10. We do not knowingly collect personal information from minors. If you are a parent or guardian and believe that your child has provided personal information to us, please contact us at [dalefoerster@proton.me](mailto:dalefoerster@proton.me), and we will take appropriate steps to remove the information from our records.
+The Game is not intended for use by individuals under the age of 12. We do not knowingly collect personal information from minors. If you are a parent or guardian and believe that your child has provided personal information to us, please contact us at [dalefoerster@proton.me](mailto:dalefoerster@proton.me), and we will take appropriate steps to remove the information from our records.
 
 ## Changes to this Privacy Policy
 
