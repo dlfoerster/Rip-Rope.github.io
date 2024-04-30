@@ -1,0 +1,71 @@
+#:kivy 2.2.0
+#:import utils kivy.utils
+
+<GameScreen>:
+    FloatLayout:
+        size_hint: 1, .9
+        pos_hint: {"top": .9, "left": 1}
+
+        Background:
+            id: background
+            texture: self.full_background_texture
+            canvas:
+                Rectangle:
+                    id: full_background
+                    size: self.width, 7000
+                    pos: 0, self.height - 7000
+                    texture: self.full_background_texture
+
+                # Rope Textures
+                Rectangle:
+                    id: rope_1
+                    size: 64, 5000
+                    pos: root.x + (0.18 * self.width) - 32, 0
+                    texture: self.rope_texture
+
+                Rectangle:
+                    id: rope_2
+                    size: 64, 5000
+                    pos: root.x + (0.34 * self.width) - 32, 0
+                    texture: self.rope_texture
+
+                Rectangle:
+                    id: rope_3
+                    size: 64, 5000
+                    pos: root.x + (0.5 * self.width) - 32, 0
+                    texture: self.rope_texture
+
+                Rectangle:
+                    id: rope_4
+                    size: 64, 5000
+                    pos: root.x + (0.66 * self.width) - 32, 0
+                    texture: self.rope_texture
+
+                Rectangle:
+                    id: rope_5
+                    size: 64, 5000
+                    pos: root.x + (0.82 * self.width) - 32, 0
+                    texture: self.rope_texture
+        Image:
+            id: coin_image
+            size: 64, 64
+            size_hint: .15, .15
+            pos_hint: {"top": 1, "left": .4}
+            source: "Images/coin.png"
+        Label:
+            id: coin_label
+            text: ""
+            bold: True
+            outline_color: 0, 0, 0, 1
+            outline_width: 2
+            size_hint: .15, .15
+            pos_hint: {"top": .95, "left": .4}
+        Label:
+            id: count_down_label
+            text: ""
+            size_hint: .5, .25
+            pos_hint: {"top": .8, "right": .75}
+            bold: True
+            font_size: 55
+            outline_color: 0, 0, 0, 1
+            outline_width: 4

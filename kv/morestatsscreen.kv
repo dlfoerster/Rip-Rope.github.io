@@ -1,0 +1,44 @@
+#:kivy 2.2.0
+
+<MoreStatsScreen>:
+    canvas:
+        Color: 
+            rgb: utils.get_color_from_hex("#03fc45")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .2, .1
+            pos_hint: {"top": 1, "left": 1}
+            text: 'Back'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("leader_board_screen")
+        Label:
+            size_hint: 1, .1
+            pos_hint: {"top": 1, "left": 1}
+            text: "Leader Board"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+            font_size: 55
+        ScrollView:
+            size_hint: 1, .9
+            pos_hint: {"top": .89, "left": 1}
+            GridLayout:
+                cols: 1
+                id: leader_board
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: '100dp'
+                row_force_default: True
+                padding: 10,10
+                spacing: 10,10

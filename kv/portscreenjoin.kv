@@ -1,0 +1,120 @@
+#:kivy 2.2.0
+#:import utils kivy.utils
+
+<PortScreenJoin>:
+    canvas.before:
+        Color: 
+            rgb: utils.get_color_from_hex("#03fc45")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        size_hint: 1, .1
+        pos_hint: {"top": 1, "left": 1}
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .2, 1
+            pos_hint: {"top": 1, "left": 1}
+            text: 'Back'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("multiplayer_screen")
+        Label:
+            id: multiplayer_label
+            size_hint: 1, 1
+            pos_hint: {"top": .8, "left": 1}
+            text: 'Select A Room'
+            color: (1,1,1,1)
+            font_size: 55
+            outline: True
+            outline_width: 4
+            outline_color: (0,0,0,1)
+    FloatLayout:
+        Label:
+            id: error_label
+            size_hint: .3, .1
+            pos_hint: {"top": .9, "right": .65}
+            text: 'Test'
+            color: (0,0,1,1)
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .3, .1
+            pos_hint: {"top": .75, "right": .65}
+            text: 'Room 1'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("multiplayer_game_screen")
+                app.join_multiplayer(port=50000)
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .3, .1
+            pos_hint: {"top": .64, "right": .65}
+            text: 'Room 2'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("multiplayer_game_screen")
+                app.join_multiplayer(port=49999)
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .3, .1
+            pos_hint: {"top": .53, "right": .65}
+            text: 'Room 3'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("multiplayer_game_screen")
+                app.join_multiplayer(port=49998)
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .3, .1
+            pos_hint: {"top": .42, "right": .65}
+            text: 'Room 4'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("multiplayer_game_screen")
+                app.join_multiplayer(port=49997)
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .3, .1
+            pos_hint: {"top": .31, "right": .65}
+            text: 'Room 5'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("multiplayer_game_screen")
+                app.join_multiplayer(port=49996)
+

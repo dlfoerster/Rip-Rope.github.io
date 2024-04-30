@@ -1,0 +1,9 @@
+#:kivy 2.2.0
+
+<Bomb>:
+    pos_x: self.pos_x
+    canvas.before:
+        Rectangle:
+            size: 72, 82.5
+            pos: self.pos
+            source: "Images/bomb.png"

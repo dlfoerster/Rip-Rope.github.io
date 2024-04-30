@@ -1,0 +1,52 @@
+#:kivy 2.2.0
+
+<DeathStatsScreen>:
+    canvas:
+        Color: 
+            rgb: utils.get_color_from_hex("#03fc45")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    LabelButton:
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#029640") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        text: "Start Game"
+        size_hint: .4, .1
+        pos_hint: {"top": .35, "right": .69}
+        underline: True
+        color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+        on_release:
+            app.change_screen("game_screen")
+            app.start_game()
+    LabelButton:
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#029640") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        text: "Home"
+        size_hint: .4, .1
+        pos_hint: {"top": .2, "right": .69}
+        underline: True
+        color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+        on_release:
+            app.change_screen("home_screen")
+    Image:
+        size: 64, 70
+        size_hint: 1, .4
+        pos_hint: {"top": .95, "right": 1}
+        source: "Images/trophy.png"
+    Label:
+        id: previous_score
+        size_hint: 1, .4
+        pos_hint: {"top": .9, "right": 1}
+        bold: True
+        color: (1,1,1,1)
+        outline_color: (0, 0, 0, 1)
+        outline_width: 4
+        text: ""

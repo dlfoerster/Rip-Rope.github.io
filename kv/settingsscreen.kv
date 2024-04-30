@@ -1,0 +1,62 @@
+#:kivy 2.2.0
+
+<SettingsScreen>:
+    canvas:
+        Color: 
+            rgb: utils.get_color_from_hex("#03fc45")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .2, .1
+            pos_hint: {"top": 1, "left": 1}
+            text: 'Back'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("home_screen")
+        Label:
+            size_hint: 1, .1
+            pos_hint: {"top": 1, "left": 1}
+            text: "Settings"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+            font_size: 55
+        LabelButton:
+            id: music_setting
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .9, .1
+            pos_hint: {"top": .89, "right": .95}
+            text: 'Sound: On'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.toggle_sounds()
+        LabelButton:
+            id: background_setting
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .9, .1
+            pos_hint: {"top": .78, "right": .95}
+            text: 'Background: Scrolling'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.toggle_background()

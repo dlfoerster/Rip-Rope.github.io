@@ -1,0 +1,9 @@
+#:kivy 2.2.0
+
+<PowerUpCoin>:
+    pos_x: self.pos_x
+    canvas.before:
+        Rectangle:
+            size: 128, 128
+            pos: self.pos
+            source: "Images/powerupcoin.png"

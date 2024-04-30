@@ -1,0 +1,215 @@
+#:kivy 2.2.0
+
+<LeaderBoardScreen>:
+    canvas:
+        Color: 
+            rgb: utils.get_color_from_hex("#03fc45")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .2, .1
+            pos_hint: {"top": 1, "left": 1}
+            text: 'Back'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("home_screen")
+        Label:
+            size_hint: 1, .1
+            pos_hint: {"top": 1, "left": 1}
+            text: "Leader Board"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+            font_size: 55
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .2, .1
+            pos_hint: {"top": 1, "right": 1}
+            text: 'More Stats'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("more_stats_screen")
+                app.update_more_stats()
+        Label:
+            id: error_message
+            size_hint: 1, .1
+            pos_hint: {"top": .58, "left": .5 }
+            text: ""
+            color: (1,0,0,1)
+        # First
+        Label:
+            canvas:
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    width: 4
+                    rectangle: self.x, self.y, self.width, self.height
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex("#FFD700")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .1, .1
+            pos_hint: {"top": .8, "right": .175}
+            text: "1st"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+        Label:
+            canvas:
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    width: 4
+                    rectangle: self.x, self.y, self.width, self.height
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex("#FFD700")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .1, .1
+            pos_hint: {"top": .8, "right": .925}
+            text: "1st"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+        Label:
+            id: first_place
+            canvas:
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    width: 4
+                    rectangle: self.x, self.y, self.width, self.height
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex("#ADD8E6")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .65, .1
+            pos_hint: {"top": .8, "right": .825}
+            text: "NETWORK ERROR"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+        # Second
+        Label:
+            canvas:
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    width: 4
+                    rectangle: self.x, self.y, self.width, self.height
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex("#d6d6d6")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .1, .1
+            pos_hint: {"top": .67, "right": .125}
+            text: "2nd"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+        Label:
+            id: second_place
+            canvas:
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    width: 4
+                    rectangle: self.x, self.y, self.width, self.height
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex("#ADD8E6")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .35, .1
+            pos_hint: {"top": .67, "right": .475}
+            text: "NETWORK ERROR"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+        # Third
+        Label:
+            canvas:
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    width: 4
+                    rectangle: self.x, self.y, self.width, self.height
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex("#A17652")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .1, .1
+            pos_hint: {"top": .67, "right": .625}
+            text: "3rd"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+        Label:
+            id: third_place
+            canvas:
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    width: 4
+                    rectangle: self.x, self.y, self.width, self.height
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex("#ADD8E6")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .35, .1
+            pos_hint: {"top": .67, "right": .975}
+            text: "NETWORK ERROR"
+            color: (1,1,1,1)
+            outline_color: (0, 0, 0, 1)
+            outline_width: 4
+
+        TextInput:
+            id: user_name_input
+            hint_text: "Leaderboard Name"
+            size_hint: .5, .2
+            pos_hint: {"top": .5, "right": .75}
+            font_size: 58
+            multiline: False
+            hint_text_color: 0.3, 0.3, 0.3, 1
+            foreground_color: 0, 0, 0, 1  # Text color (black)
+            background_normal: "Images/nametag.png"  # Use the custom background image
+            background_color: 1, 1, 1, 1  # Set the background color to white
+            padding: [40, (self.height - self.line_height) / 2]
+            border: (10, 10, 10, 10)
+            border_color: 0, 0, 0, 1  # Border color (black)
+            focus: False  # Automatically focus on the text input when the app starts
+
+        ImageButton:
+            source: "Images/submit.png"
+            size_hint: .5, .2
+            pos_hint: {"top": .3, "right": .75}
+            on_release:
+                app.add_to_leader_board(name=user_name_input.text)

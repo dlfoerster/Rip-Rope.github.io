@@ -1,0 +1,120 @@
+#:kivy 2.2.0
+#:import utils kivy.utils
+
+<HomeScreen>:
+    canvas:
+        Color: 
+            rgb: utils.get_color_from_hex("#03fc45")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    LabelButton:
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        text: "Start Game"
+        size_hint: .3, .1
+        pos_hint: {"top": .35, "right": .475}
+        underline: True
+        color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+        on_release:
+            app.change_screen("game_screen")
+            app.start_game()
+    LabelButton:
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        text: "Multiplayer"
+        size_hint: .3, .1
+        pos_hint: {"top": .35, "right": .825}
+        underline: True
+        color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+        on_release:
+            app.change_screen("multiplayer_screen")
+    LabelButton:
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        text: "Settings"
+        size_hint: .4, .1
+        pos_hint: {"top": .2, "right": .69}
+        underline: True
+        color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+        on_release:
+            app.change_screen("settings_screen")
+    Image:
+        size: 64, 70
+        size_hint: 1, .4
+        pos_hint: {"top": .95, "right": 1}
+        source: "Images/trophy.png"
+    Label:
+        id: high_score
+        size_hint: 1, .4
+        pos_hint: {"top": .9, "right": 1}
+        bold: True
+        color: (1,1,1,1)
+        outline_color: (0, 0, 0, 1)
+        outline_width: 4
+        text: ""
+    ScrollView:
+        size_hint: 1, .2
+        pos_hint: {"top": .65, "left": 1}
+        GridLayout:
+            canvas:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            rows: 1
+            size_hint_x: None
+            width: self.minimum_width
+            col_default_width: '100dp'
+            col_force_default: True
+            id: character_image_grid
+    Label:
+        id: selected_character
+        size_hint: 1, .2
+        pos_hint: {"top": .5, "left": 1}
+        color: (1,1,1,1)
+        outline_color: (0, 0, 0, 1)
+        outline_width: 4
+        text: ""
+    LabelButton:
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        text: "Shop"
+        size_hint: .3, .1
+        pos_hint: {"top": .9, "right": .825}
+        underline: True
+        color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+        on_release:
+            app.change_screen("shop_screen")
+            app.update_shop()
+    LabelButton:
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        text: "Leader Board"
+        size_hint: .3, .1
+        pos_hint: {"top": .9, "right": .475}
+        underline: True
+        color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+        on_release:
+            app.change_screen("leader_board_screen")

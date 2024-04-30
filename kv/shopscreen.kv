@@ -1,0 +1,93 @@
+#:kivy 2.2.0
+#:import utils kivy.utils
+
+<ShopScreen>:
+    FloatLayout:
+        size_hint: 1, .1
+        pos_hint: {"top": 1, "left": 1}
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#03fc45")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .2, 1
+            pos_hint: {"top": 1, "left": 1}
+            text: 'Back'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("home_screen")
+        Label:
+            size_hint: 1, 1
+            pos_hint: {"top": .8, "left": 1}
+            text: 'Shop'
+            color: (1,1,1,1)
+            font_size: 55
+            outline: True
+            outline_width: 4
+            outline_color: (0,0,0,1)
+        Label:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .2, 1
+            pos_hint: {"top": 1, "right": 1}
+        Image:
+            source: "Images/coin.png"
+            size_hint: .1, .9
+            pos_hint: {"top": 1, "right": .95}
+        Label:
+            id: coin_label
+            text: ""
+            size_hint: .1, .5
+            pos_hint: {"top": .45, "right": .95}
+            outline: True
+            outline_width: 4
+            outline_color: (0,0,0,1)
+    FloatLayout:
+        size_hint: 1, .8
+        pos_hint: {"top": .9, "left": 1}
+        canvas.before:
+            Color: 
+                rgb: utils.get_color_from_hex("#03fc45")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        ScrollView:
+            size_hint: 1, 1
+            pos_hint: {"top": 1, "left": 1}
+            GridLayout:
+                cols: 1
+                id: shop_characters
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: '200dp'
+                row_force_default: True
+                padding: 10,10
+                spacing: 10,10
+    FloatLayout:
+        size_hint: 1, .1
+        pos_hint: {"top": .1, "left": 1}
+        canvas.before:
+            Color:
+                rgba: utils.get_color_from_hex("#b4b8b0")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        canvas:
+            Color:
+                rgba: 0,0,0,1
+            Line:
+                width: 4
+                rectangle: self.x, self.y, self.width, self.height

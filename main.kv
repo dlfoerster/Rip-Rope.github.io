@@ -1,0 +1,104 @@
+#:kivy 2.2.0
+#:include kv/bomb.kv
+#:include kv/eagle.kv
+#:include kv/coin.kv
+#:include kv/powerupcoin.kv
+#:include kv/extralife.kv
+#:include kv/homescreen.kv
+#:include kv/pausescreen.kv
+#:include kv/gamescreen.kv
+#:include kv/shopscreen.kv
+#:include kv/leaderboardscreen.kv
+#:include kv/morestatsscreen.kv
+#:include kv/deathstatsscreen.kv
+#:include kv/settingsscreen.kv
+#:include kv/multiplayerscreen.kv
+#:include kv/multiplayergamescreen.kv
+#:include kv/portscreenhost.kv
+#:include kv/portscreenjoin.kv
+#:import utils kivy.utils
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+FloatLayout:
+    id: main
+    ScreenManager:
+        transition: NoTransition()
+        size_hint: 1, 1
+        pos_hint: {"top": 1, "left": 1}
+        id: screen_manager
+        HomeScreen:
+            id: home_screen
+            name: "home_screen"
+        DeathStatsScreen:
+            id: death_stats_screen
+            name: "death_stats_screen"
+        ShopScreen:
+            id: shop_screen
+            name: "shop_screen"
+        LeaderBoardScreen:
+            id: leader_board_screen
+            name: "leader_board_screen"
+        MoreStatsScreen:
+            id: more_stats_screen
+            name: "more_stats_screen"
+        SettingsScreen:
+            id: settings_screen
+            name: "settings_screen"
+        GameScreen:
+            id: game_screen
+            name: "game_screen"
+            Character:
+                id: character
+                source: self.source
+                size_hint: None, None
+                size: 256, 256
+                pos: root.x + (0.5 * (root.width))-(.5*self.width), root.height / 1.45
+            FloatLayout:
+                id: banner
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#b4b8b0")
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                canvas:
+                    Color:
+                        rgba: 0,0,0,1
+                    Line:
+                        width: 4
+                        rectangle: self.x, self.y, self.width, self.height
+                size_hint: 1, .1
+                pos_hint: {"top": 1, "left": 1}
+                Label:
+                    id: score_label
+                    text: "SCORE: 0"
+                    bold: True
+                    outline_color: 0, 0, 0, 1
+                    outline_width: 2
+                    size_hint: .25, 0.05
+                    pos_hint: {"top": .5, "left": .25}
+                LabelButton:
+                    text: "PAUSE"
+                    underline: True
+                    bold: True
+                    outline_color: 0, 0, 0, 1
+                    outline_width: 2
+                    size_hint: .25, .25
+                    pos_hint: {"top": .6, "right": 1}
+                    on_release:
+                        app.pause()
+        MultiplayerScreen:
+            id: multiplayer_screen
+            name: "multiplayer_screen"
+        MultiplayerGameScreen:
+            id: multiplayer_game_screen
+            name: "multiplayer_game_screen"
+        PortScreenHost:
+            id: port_screen_host
+            name: "port_screen_host"
+        PortScreenJoin:
+            id: port_screen_join
+            name: "port_screen_join"
+        PauseScreen:
+            id: pause_screen
+            name: "pause_screen"

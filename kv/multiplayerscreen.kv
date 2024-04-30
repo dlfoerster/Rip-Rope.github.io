@@ -1,0 +1,68 @@
+#:kivy 2.2.0
+#:import utils kivy.utils
+
+<MultiplayerScreen>:
+    canvas.before:
+        Color: 
+            rgb: utils.get_color_from_hex("#03fc45")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        size_hint: 1, .1
+        pos_hint: {"top": 1, "left": 1}
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .2, 1
+            pos_hint: {"top": 1, "left": 1}
+            text: 'Back'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("home_screen")
+                app.stop_server()
+        Label:
+            id: multiplayer_label
+            size_hint: 1, 1
+            pos_hint: {"top": .8, "left": 1}
+            text: 'Multiplayer'
+            color: (1,1,1,1)
+            font_size: 55
+            outline: True
+            outline_width: 4
+            outline_color: (0,0,0,1)
+    FloatLayout:
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .3, .1
+            pos_hint: {"top": .65, "right": .65}
+            text: 'Host'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("port_screen_host")
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: .3, .1
+            pos_hint: {"top": .45, "right": .65}
+            text: 'Join'
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            underline: True
+            on_release:
+                app.change_screen("port_screen_join")
+

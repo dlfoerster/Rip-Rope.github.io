@@ -1,0 +1,47 @@
+#:kivy 2.2.0
+
+<PauseScreen>:
+    canvas:
+        Color: 
+            rgb: utils.get_color_from_hex("#03fc45")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        Label:
+            size_hint: 1, .1
+            pos_hint: {"top": .6, "left": 1}
+            text: "Game Paused"
+            font_size: 50
+            outline_color: (0,0,0,1) 
+            outline_width: 2
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            text: "Resume Game"
+            size_hint: .4, .1
+            pos_hint: {"top": .35, "right": .69}
+            underline: True
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            on_release:
+                app.resume()
+        LabelButton:
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#02a646") if self.state == 'normal' else utils.get_color_from_hex("#025928")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            text: "Exit"
+            size_hint: .4, .1
+            pos_hint: {"top": .2, "right": .69}
+            underline: True
+            color: (0,0,0,1) if self.state == 'normal' else (1,1,1,1)
+            on_release:
+                app.change_screen("home_screen")
+                app.reset_game()
+        
