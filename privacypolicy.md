@@ -2,7 +2,7 @@
 
 Last Updated: 07/30/2023
 
-Rip Rope LLC ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and disclose information in connection with the Rip Rope application ("the Game").
+Rip Rope ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and disclose information in connection with the Rip Rope application ("the Game").
 
 By downloading, installing, or using the Game, you consent to the practices outlined in this Privacy Policy. If you do not agree with any part of this policy, please refrain from using the Game.
 
@@ -49,7 +49,3 @@ We reserve the right to update or modify this Privacy Policy at any time. The up
 ## Contact Us
 
 If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us at [dalefoerster@proton.me](mailto:dalefoerster@proton.me).
-
----
-
-Note: This is a general privacy policy template and should be tailored to fit the specific data collection and usage practices of your game. Additionally, it is advisable to consult with a legal professional to ensure compliance with applicable privacy laws and regulations.
